@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  smoking_allowed: MyString
+  pets_allowed: MyString
+  pool: MyString
+  free_parking: MyString
+  ac: MyString
+  wifi: MyString
+  heating: MyString
+
+two:
+  smoking_allowed: MyString
+  pets_allowed: MyString
+  pool: MyString
+  free_parking: MyString
+  ac: MyString
+  wifi: MyString
+  heating: MyString

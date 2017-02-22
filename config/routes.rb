@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
+  resources :listings
   end
 
   root 'homes#index'

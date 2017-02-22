@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_type: MyString
+  listing_type: MyString
+  accommodate: 1
+  bedroom: 1
+  bathroom: 1
+  summary: MyText
+  address: MyString
+  references: 
+
+two:
+  home_type: MyString
+  listing_type: MyString
+  accommodate: 1
+  bedroom: 1
+  bathroom: 1
+  summary: MyText
+  address: MyString
+  references: 
