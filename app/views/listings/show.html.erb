@@ -7,5 +7,12 @@
 <%= @single_listing.bedroom %>
 <%= @single_listing.accommodate %>
 
+
+
 <%= link_to "Listing", listings_path %>
 <%= link_to "Home", root_path %>
+
+<p><%= link_to "Edit", edit_listing_path(@single_listing) %></p>
+<p><%= link_to "Delete", listing_path(@single_listing),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>

@@ -29,6 +29,30 @@ class ListingsController < ApplicationController
 		@single_listing = Listing.find_by(id: params[:id]) 
 	end
 
+#delete single listing within show page
+	def destroy
+		@single_listing = Listing.find_by(id: params[:id]) 
+		if @single_listing.destroy
+			redirect_to listings_path, notice: 'Listing was successfully deleted.'
+		end
+	end
+
+#update single listing within show page
+	def edit
+		@listing = Listing.find_by(id: params[:id]) 
+	end
+
+	def update
+	@updated_listing = current_user.listings.find_by(id: params[:id])
+	respond_to do |format|
+		  if @updated_listing.update(listing_params)
+			format.html { redirect_to listing_path(@updated_listing), notice: 'Listing was successfully updated!' }
+			else
+			format.js {  }
+			end
+		end 
+	end 
+
 	private
 	def listing_params
 		params.require(:listing).permit(:home_type, :listing_type, :accommodate, :bedroom, :bathroom, :summary, :address)

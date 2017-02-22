@@ -2,5 +2,8 @@
   <p class ="error"></p>
     <%= form_for @listing, remote: true do |form| %>
     <%= render partial: '/listings/form', object: form %>
+
     <%= form.submit %>
+    <%= link_to "Listing", listings_path %>
     <% end %>
+
