@@ -42,7 +42,8 @@ ActiveRecord::Base.transaction do
     listing['bathroom'] = rand(1..8)
     listing['address'] = Faker::Address.street_address
     listing['summary'] = Faker::Hipster.sentence
-
+    listing['price'] = rand(80..500)
+    
     listing['user_id'] = uids.sample
 
     Listing.create(listing)

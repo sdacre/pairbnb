@@ -1,12 +1,26 @@
-<h1> HOME </h1>
+<div class="row">
+  <div class="col-sm-4"></div>
 
-<% if signed_in? %>
-  <%= current_user.email %>
+  <div class="col-sm-4 container-fluid text-center top-buffer">
+  <h1 style="color: black;">Pairbnb</h1>
+    <img src="heart.png" class="img-responsive" alt="Heart" style="display:inline; width: 100px; height: 100px;"><br>
+    <% if signed_in? %>
+  	<button type="button" class="btn btn-default bottom5"><%= link_to 'See all listings', listings_path %></button>
+  </div>
+
+  <div class="col-sm-4 container-fluid text-center">
+  	<div class="well well-sm">
+  <%= current_user.email %><br>
+  <%= link_to "View profile *link does not work" %><br> <!-- this link does not work (profile path has not yet been created) -->
   <%= button_to "Sign out", sign_out_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign in", sign_in_path %>
-  <%= link_to t(".sign_up"), sign_up_path %>
-  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
-<% end %>
+  <% else %>
+	<button type="button" class="btn btn-default bottom5"><%= link_to "Sign in", sign_in_path %></button><br>
+  <button type="button" class="btn btn-default bottom5"><%= link_to t(".sign_up"), sign_up_path %></button><br>
+  <button type="button" class="btn btn-default bottom5"><%= link_to "Sign in with Facebook", "/auth/facebook" %></button><br>
+	<% end %>
+		</div>
+	</div>
+</div>
 
-<%= link_to 'See all listings', listings_path %> 
+
+

@@ -1,15 +1,15 @@
-<p> This is the listings index page view </p>
 
+<div class="row">
+	<div class="col-sm-8">
 <% @listings.each do |listing| %>
-<%= listing.summary %>
-<%= listing.address %>
-<%= listing.home_type %>
-<%= listing.listing_type %>
-<%= listing.bathroom %>
-<%= listing.bedroom %>
-<%= listing.accommodate %>
-<%= link_to 'Show', listing_path(listing) %> 
-<% end %>
-
-<%= link_to 'Create New Listing', new_listing_path %> 
-<%= link_to 'Home', root_path %> 
+	<img src="heart.png" class="img-responsive" alt="Heart" style="display:inline; width: 100px; height: 100px;"><br>
+	<%= listing.summary %><br>
+	$<%= listing.price %>/night<br>
+	<%= listing.listing_type %><br>
+	<%= listing.home_type %><br>
+	<button type="button" class="btn btn-default bottom5"><%= link_to 'Show', listing_path(listing) %></button><br>
+	<% end %>
+	</div>
+<div class="col-sm-4"><button type="button" class="btn btn-default bottom5"><%= link_to 'Create New Listing', new_listing_path %></button>
+	<button type="button" class="btn btn-default bottom5"><%= link_to 'Home', root_path %></button></div>
+</div>
