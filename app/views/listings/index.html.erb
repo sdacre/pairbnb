@@ -1,0 +1,14 @@
+<p> This is the listings index page view </p>
+
+<% @listings.each do |listing| %>
+<%= listing.summary %>
+<%= listing.address %>
+<%= listing.home_type %>
+<%= listing.listing_type %>
+<%= listing.bathroom %>
+<%= listing.bedroom %>
+<%= listing.accommodate %>
+<% end %>
+
+<%= link_to 'Create New Listing', new_listing_path %> 
+<%= link_to 'Home', root_path %> 

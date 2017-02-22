@@ -1,23 +1,23 @@
 class ListingsController < ApplicationController
 
-before_action :authenticate_user!, except: [:show]
 
 #shows all listings page
 	def index
-		@listings = Listings.all
+		@listings = Listing.all
 	end
 
 #renders page to create new listing (form on page)
 	def new
+		@listing = Listing.new
 	end 
 
 #method which actually creates the new listing 
 
 	def create
-	@new_listing = Listing.new(listing_params)
+	@new_listing = current_user.listings.new(listing_params)
 		respond_to do |format|
-		  if @new_listing.save
-		  format.html { redirect_to user_listing_path, notice: 'Listing was successfully created.' }
+		  if @new_listing.save!
+		  format.html { redirect_to listing_path(@new_listing), notice: 'Listing was successfully created.' }
 		  else
 		  format.js {  }
 		  end
@@ -26,11 +26,11 @@ before_action :authenticate_user!, except: [:show]
 
 #page where user clicked on single listing (id)
 	def show
-		@single_listing = Listings.find_by(params[:id]) 
+		@single_listing = Listing.find_by(id: params[:id]) 
 	end
 
 	private
 	def listing_params
-		params.require(:user_id).permit(:home_type, :listing_type, :accommodate, :bedroom, :bathoom, :summary, :address)
+		params.require(:listing).permit(:home_type, :listing_type, :accommodate, :bedroom, :bathroom, :summary, :address)
 	end 
 end 

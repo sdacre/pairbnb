@@ -1,0 +1,22 @@
+
+
+  <%= form.label :home_type %>
+  <%= form.select :home_type, Listing.home_types, type: 'Home Type' %>
+
+	<%= form.label :listing_type %>
+  <%= form.select :listing_type, Listing.listing_types, type: 'Listing Type' %>
+
+  <%= form.label :accommodate %>
+  <%= form.select :accommodate, Listing.accommodate, type: 'Accomodates' %>
+
+  <%= form.label :bedroom %>
+  <%= form.select :bedroom, Listing.bedroom, type: 'Bedrooms' %>
+
+  <%= form.label :bathroom %>
+  <%= form.select :bathroom, Listing.bathroom, type: 'Bathrooms' %>
+
+  <%= form.label :summary %>
+  <%= form.text_field :summary, type: 'Summary' %>
+
+  <%= form.label :address %>
+  <%= form.text_field :address, type: 'Address' %>

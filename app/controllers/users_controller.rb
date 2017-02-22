@@ -10,7 +10,6 @@ class UsersController < Clearance::UsersController
 
 	def create
 	@user = User.new(user_params)
-	 
 		respond_to do |format|
 		  if @user.save
 		  format.html { redirect_to root_path, notice: 'User was successfully created.' }
@@ -22,7 +21,7 @@ class UsersController < Clearance::UsersController
 
 	private
 	def user_params
-	params.require(:user).permit(:email, :password)
+		params.require(:user).permit(:email, :password)
 	end 
 
 end
