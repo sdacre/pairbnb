@@ -1,40 +1,89 @@
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand $dark-color title" href="#">Wherebnb</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+          <button type="button" class="btn btn-default buffer10">
+            <%= link_to "Back to all listings", listings_path %>
+          </button>
+         
+          <button type="button" class="btn btn-default buffer10">
+            <%= link_to "Home", root_path %>
+          </button>
+          </li>
+        </ul>
+      </div>
+   </div>
+  </nav>
+
+
+
+
 <div class="row">
-  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div> <!-- empty div -->
 
 <!-- there must be a better way to add buffer in between elements than doing top5 class on each indiv. button -->
 
-<div class="col-sm-4 well text-center top 5">
-  <h1> Create New Listing </h1>
+  <div class="col-sm-4 well text-center top 5">
+    <h1 class = "title"> Create New Listing </h1>
 
-  <p class = "top5"><%= form.label :home_type %>
-  <%= form.select :home_type, Listing.home_types, type: 'Home Type' %></p><br>
+    <p class = "buffer5">
+      <%= form.label :home_type %>
+      <%= form.select :home_type, Listing.home_types, type: 'Home Type' %> 
+    </p><br>
 
-	<p class = "top5"><%= form.label :listing_type %>
-  <%= form.select :listing_type, Listing.listing_types, type: 'Listing Type' %></p><br>
+  	<p class = "buffer5">
+      <%= form.label :listing_type %>
+      <%= form.select :listing_type, Listing.listing_types, type: 'Listing Type' %>
+    </p><br>
 
-  <p class = "top5"><%= form.label :accommodate %>
-  <%= form.select :accommodate, Listing.accommodate, type: 'Accomodates' %></p><br>
+    <p class = "buffer5">
+      <%= form.label :accommodate %>
+      <%= form.select :accommodate, Listing.accommodate, type: 'Accomodates' %>
+    </p><br>
 
-  <p class = "top5"><%= form.label :bedroom %>
-  <%= form.select :bedroom, Listing.bedroom, type: 'Bedrooms' %></p><br>
+    <p class = "buffer5">
+      <%= form.label :bedroom %>
+      <%= form.select :bedroom, Listing.bedroom, type: 'Bedrooms' %>  
+    </p><br>
 
-  <p class = "top5"><%= form.label :bathroom %>
-  <%= form.select :bathroom, Listing.bathroom, type: 'Bathrooms' %></p><br>
+    <p class = "buffer5">
+      <%= form.label :bathroom %>
+      <%= form.select :bathroom, Listing.bathroom, type: 'Bathrooms' %>
+    </p><br>
 
-  <p class = "top5"><%= form.label :summary %>
-  <%= form.text_field :summary, type: 'Summary' %></p><br>
+    <p class = "buffer5">
+      <%= form.label :summary %>
+      <%= form.text_field :summary, type: 'Summary' %>  
+    </p><br>
 
-  <p class = "top5"><%= form.label :address %>
-  <%= form.text_field :address, type: 'Address' %></p><br>
+    <p class = "buffer5">
+      <%= form.label :address %>
+      <%= form.text_field :address, type: 'Address' %>
+    </p><br>
 
-  <p class = "top5"><%= form.label :price %>
-  <%= form.text_field :price, type: 'Price' %></p><br>
+    <p class = "buffer5">
+      <%= form.label :price %>
+      <%= form.text_field :price, type: 'Price' %>
+    </p><br>
 
-  <p class = "top5"><%= form.submit %></p>
-</div>
+    <p class = "buffer5">
+      <%= form.submit %>
+    </p>
+  </div>
 
-    <div class="col-sm-4">
-    <button type="button" class="btn btn-default bottom5"><%= link_to "Back to all listings", listings_path %></button><br>
-    <button type="button" class="btn btn-default bottom5"><%= link_to "Home", root_path %></button><br>
-    </div>
+  <div class="col-sm-4">
+  </div>
+
+
+
+
 </div>

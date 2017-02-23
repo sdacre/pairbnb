@@ -1,26 +1,56 @@
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand $dark-color title" href="#">Wherebnb</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+          <button type="button" class="btn btn-default buffer10">
+            <%= link_to "Sign out", sign_out_path, method: :delete %>
+          </button>
+          <button type="button" class="btn btn-default buffer10">
+            <%= link_to "View profile", user_path(current_user) %><br>
+          </button>
+          
+          </li>
+        </ul>
+     </div>
+   </div>
+  </nav>
+
+
 <div class="row">
-  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div> <!-- empty div -->
 
   <div class="col-sm-4 container-fluid text-center top-buffer">
-  <h1 style="color: black;">Pairbnb</h1>
-    <img src="heart.png" class="img-responsive" alt="Heart" style="display:inline; width: 100px; height: 100px;"><br>
+    <h1 class="title">Wherebnb</h1>
+    <img src="house.png" class="img-responsive buffer5" alt="House" style="display:inline; width: 100px; height: 100px;"><br>
     <% if signed_in? %>
-  	<button type="button" class="btn btn-default bottom5"><%= link_to 'See all listings', listings_path %></button>
+  	<button type="button" class="btn btn-default buffer5">
+      <%= link_to 'See all listings', listings_path %>
+    </button>
   </div>
 
-  <div class="col-sm-4 container-fluid text-center">
-  	<div class="well well-sm">
-  <%= current_user.email %><br>
-  <%= link_to "View profile *link does not work" %><br> <!-- this link does not work (profile path has not yet been created) -->
-  <%= button_to "Sign out", sign_out_path, method: :delete %>
-  <% else %>
-	<button type="button" class="btn btn-default bottom5"><%= link_to "Sign in", sign_in_path %></button><br>
-  <button type="button" class="btn btn-default bottom5"><%= link_to t(".sign_up"), sign_up_path %></button><br>
-  <button type="button" class="btn btn-default bottom5"><%= link_to "Sign in with Facebook", "/auth/facebook" %></button><br>
-	<% end %>
-		</div>
+  <div class="col-sm-4 container-fluid text-center title">
+      <% else %>
+	    <button type="button" class="btn btn-default buffer5">
+       <%= link_to "Sign in", sign_in_path %> 
+      </button><br>
+
+      <button type="button" class="btn btn-default buffer5 first-color">
+        <%= link_to "Sign up", sign_up_path %>
+      </button><br>
+      <button type="button" class="btn btn-default buffer5">
+        <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+      </button><br>
+	    <% end %>
 	</div>
 </div>
-
 
 

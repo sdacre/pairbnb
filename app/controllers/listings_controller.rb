@@ -1,9 +1,8 @@
 class ListingsController < ApplicationController
 
-
 #shows all listings page
 	def index
-		@listings = Listing.all
+		@listings = Listing.all.paginate(page: params[:page], per_page: 10)
 	end
 
 #renders page to create new listing (form on page)
@@ -17,7 +16,9 @@ class ListingsController < ApplicationController
 	@new_listing = current_user.listings.new(listing_params)
 		respond_to do |format|
 		  if @new_listing.save!
-		  format.html { redirect_to listing_path(@new_listing), notice: 'Listing was successfully created.' }
+		  format.html { redirect_to listing_path(@new_listing),
+		  							notice: 'Listing was successfully created.'
+		  						}
 		  else
 		  format.js {  }
 		  end
@@ -46,7 +47,9 @@ class ListingsController < ApplicationController
 	@updated_listing = current_user.listings.find_by(id: params[:id])
 	respond_to do |format|
 		  if @updated_listing.update(listing_params)
-			format.html { redirect_to listing_path(@updated_listing), notice: 'Listing was successfully updated!' }
+			format.html { redirect_to listing_path(@updated_listing),
+										notice: 'Listing was successfully updated!'
+									}
 			else
 			format.js {  }
 			end
@@ -55,6 +58,13 @@ class ListingsController < ApplicationController
 
 	private
 	def listing_params
-		params.require(:listing).permit(:home_type, :listing_type, :accommodate, :bedroom, :bathroom, :summary, :address, :price)
+		params.require(:listing).permit(:home_type,
+																		:listing_type,
+																		:accommodate,
+																	  :bedroom,
+																	  :bathroom,
+																	  :summary,
+																	  :address,
+																	  :price)
 	end 
 end 

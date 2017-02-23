@@ -1,6 +1,15 @@
 class Listing < ApplicationRecord
 
-	validates :home_type, :listing_type, :accommodate, :bedroom, :bathroom, :summary, :address, :price, presence: true
+	validates :home_type,
+            :listing_type,
+            :accommodate,
+            :bedroom,
+            :bathroom,
+            :summary,
+            :address,
+            :price,
+            presence: true
+
 	validates :summary, length: { maximum: 500 }
 	validates :address, length: { maximum: 50 }
 

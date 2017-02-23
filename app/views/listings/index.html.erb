@@ -1,15 +1,52 @@
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand $dark-color title" href="#">Wherebnb</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+          <button type="button" class="btn btn-default buffer10">
+            <%= link_to 'Home', root_path %>
+          </button>
+          <button type="button" class="btn btn-default buffer10">
+            <%= link_to 'Create New Listing', new_listing_path %>
+          </button>
+          </li>
+        </ul>
+     	</div>
+   </div>
+  </nav>
 
-<div class="row">
-	<div class="col-sm-8">
-<% @listings.each do |listing| %>
-	<img src="heart.png" class="img-responsive" alt="Heart" style="display:inline; width: 100px; height: 100px;"><br>
-	<%= listing.summary %><br>
-	$<%= listing.price %>/night<br>
-	<%= listing.listing_type %><br>
-	<%= listing.home_type %><br>
-	<button type="button" class="btn btn-default bottom5"><%= link_to 'Show', listing_path(listing) %></button><br>
-	<% end %>
+
+
+<!-- this line required at beginning & end of page in order to show pagination -->
+
+<div class="container">
+	<div class="row listings">
+
+<%= will_paginate @listings %>
+<!-- iterating over @listings and printing out param content to page -->
+	<div class="col-sm-8 listings">
+		<% @listings.each do |listing| %>
+			<img src="house.png" class="img-responsive" alt="House" style="display:inline; width: 100px; height: 100px;"><br>
+		<%= listing.summary %><br>
+		$<%= listing.price %>/night<br>
+		<%= listing.listing_type %><br>
+		<%= listing.home_type %><br>
+			<button type="button" class="btn btn-default buffer10">
+				<%= link_to 'Show', listing_path(listing) %>
+			</button><br>
+		<% end %>
 	</div>
-<div class="col-sm-4"><button type="button" class="btn btn-default bottom5"><%= link_to 'Create New Listing', new_listing_path %></button>
-	<button type="button" class="btn btn-default bottom5"><%= link_to 'Home', root_path %></button></div>
+<!-- links to other pages -->
+	<div class="col-sm-4">
+	</div>
 </div>
+</div>
+<%= will_paginate @listings %>
