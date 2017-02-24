@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
   include Clearance::User
   has_many :authentications
   has_many :listings

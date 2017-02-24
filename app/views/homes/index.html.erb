@@ -10,6 +10,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
           <li>
           <button type="button" class="btn btn-default buffer10">
             <%= link_to "Sign out", sign_out_path, method: :delete %>
@@ -17,8 +18,8 @@
           <button type="button" class="btn btn-default buffer10">
             <%= link_to "View profile", user_path(current_user) %><br>
           </button>
-          
           </li>
+        <% end %>
         </ul>
      </div>
    </div>

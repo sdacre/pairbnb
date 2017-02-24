@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-
+skip_before_filter :verify_authenticity_token, :only => :create
 #shows all listings page
 	def index
 		@listings = Listing.all.paginate(page: params[:page], per_page: 10)
@@ -14,16 +14,15 @@ class ListingsController < ApplicationController
 
 	def create
 	@new_listing = current_user.listings.new(listing_params)
-		respond_to do |format|
-		  if @new_listing.save!
-		  format.html { redirect_to listing_path(@new_listing),
-		  							notice: 'Listing was successfully created.'
-		  						}
+		  if @new_listing.save
+		  @notice = 'listing created'
 		  else
-		  format.js {  }
+		  @notice = 'listing creation FAILED'
 		  end
-		end
+		redirect_to new_listing_path, :notice => @notice
 	end
+	
+
 
 #page where user clicked on single listing (id)
 	def show
@@ -65,6 +64,7 @@ class ListingsController < ApplicationController
 																	  :bathroom,
 																	  :summary,
 																	  :address,
-																	  :price)
+																	  :price,
+																	  {listing_image: []})
 	end 
 end 

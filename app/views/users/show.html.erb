@@ -31,15 +31,24 @@
 <!-- end of nav bar -->
 
 <div class="row">
-  <div class="col-sm-4"></div> <!-- empty div -->
+  <div class="col-sm-3"></div> <!-- empty div -->
 
-  <div class="col-sm-4 well text-center top 5">
-    <h1 class = "title"> Profile </h1>
-		
-		<%= @user.first_name %>
+  <div class="col-sm-6 well text-center top 5">
+    <h1 class = "title well"> Profile<br> 
+  <%= image_tag @user.image.thumb.url if @user.image? %></h1><br>
+  <div class="well">
+		<p class="title">Name: </p><%= @user.first_name %>
 		<%= @user.last_name %><br>
-		<%= @user.email %><br>
-	</div>
+		<p class="title">Email: </p><%= @user.email %><br>
+  </div>
+    <%= form_for @user do |image| %>
+    <%= render partial: '/users/image', object: image %>
+     <% end %>
+ </div>
 
 <div class="row">
-  <div class="col-sm-4"></div> <!-- empty div -->
+  <div class="col-sm-3"></div> <!-- empty div -->
+
+
+
+

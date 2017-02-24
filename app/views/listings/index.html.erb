@@ -34,7 +34,6 @@
 <!-- iterating over @listings and printing out param content to page -->
 	<div class="col-sm-8 listings">
 		<% @listings.each do |listing| %>
-			<img src="house.png" class="img-responsive" alt="House" style="display:inline; width: 100px; height: 100px;"><br>
 		<%= listing.summary %><br>
 		$<%= listing.price %>/night<br>
 		<%= listing.listing_type %><br>

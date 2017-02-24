@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-
+mount_uploaders :listing_image, ListingImageUploader
 	validates :home_type,
             :listing_type,
             :accommodate,
