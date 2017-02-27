@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :listings
   resources :tags
+  resources :reservations
 
   root 'homes#index'
   

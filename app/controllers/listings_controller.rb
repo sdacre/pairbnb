@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-skip_before_filter :verify_authenticity_token, :only => :create
+skip_before_filter :verify_authenticity_token, :only => [:create, :update]
 #shows all listings page
 	def index
 		@listings = Listing.all.paginate(page: params[:page], per_page: 10)

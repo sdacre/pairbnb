@@ -31,9 +31,13 @@ class ListingImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :main do
-    process resize_to_fit: [700, 200]
+    process resize_to_fit: [800, 400]
 
   end
+
+   def resize_to_fill(width, height, gravity='Center')
+        process :resize_to_fill => [width, height, gravity]
+   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

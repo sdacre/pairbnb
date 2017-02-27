@@ -23,5 +23,4 @@ class User < ApplicationRecord
   def password_optional?
     true if self.authentications.any?
   end
-
 end
