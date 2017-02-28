@@ -17,10 +17,7 @@
           <button type="button" class="btn btn-default buffer10">
             <%= link_to 'Create New Listing', new_listing_path %>
           </button>
-          <button type="button" class="btn btn-default bottom5">
-            <%= link_to "Show my reservations", reservations_path %>
-          </button><br> 
-
+  
           </li>
         </ul>
      	</div>
@@ -28,28 +25,12 @@
   </nav>
 
 
+<p> My reservations </p>
 
-<!-- this line required at beginning & end of page in order to show pagination -->
+  <% @user_reservations.each do |user_reservations| %>
+    Check-in <%= user_reservations.start_date %><br>
+    Check-out <%= user_reservations.end_date %><br>
+    Listing id: <%= user_reservations.listing_id %><br>
+    User id: <%= user_reservations.user_id %><br>
+    <% end %>
 
-<div class="container">
-	<div class="row listings">
-
-<%= will_paginate @searchlistings %>
-<!-- iterating over @listings and printing out param content to page -->
-	<div class="col-sm-8 listings">
-		<% @searchlistings.each do |listing| %>
-		<%= listing.summary %><br>
-		$<%= listing.price %>/night<br>
-		<%= listing.listing_type %><br>
-		<%= listing.home_type %><br>
-			<button type="button" class="btn btn-default buffer10">
-				<%= link_to 'Show', listing_path(listing) %>
-			</button><br>
-		<% end %>
-	</div>
-<!-- links to other pages -->
-	<div class="col-sm-4">
-	</div>
-</div>
-</div>
-<%= will_paginate @searchlistings %>

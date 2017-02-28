@@ -34,9 +34,24 @@
     <img src="house.png" class="img-responsive buffer5" alt="House" style="display:inline; width: 100px; height: 100px;"><br>
     <% if signed_in? %>
   	<button type="button" class="btn btn-default buffer5">
-      <%= link_to 'See all listings', listings_path %>
-    </button>
+      <%= link_to 'See all listings', listings_path %></button><br>
+
+      <button type="button" class="btn btn-default buffer5">
+      <%= link_to 'Create New Listing', new_listing_path %></button><br>
+
+      <button type="button" class="btn btn-default bottom5">
+      <%= link_to "Show my reservations", reservations_path %></button><br>
+
+      Where do you want to go? 
+
+<%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+<%= select_tag "city", options_for_select(Listing.city), placeholder: "Search Listings" %>
+<%= submit_tag "Search" %>
+<% end %>
+  
   </div>
+
+
 
   <div class="col-sm-4 container-fluid text-center title">
       <% else %>

@@ -13,8 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require turbolinks
 //= require_tree .
+
 
 window.setTimeout(function() {
 	$("#flash").fadeTo(500, 0).slideUp(500, function() {

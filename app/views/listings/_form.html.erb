@@ -70,6 +70,12 @@
       <%= form.text_field :address, type: 'Address' %>
     </p><br>
 
+      <p class = "buffer5">
+      <%= form.label :city %>
+      <%= form.select :city, Listing.city, type: 'City' %>
+    </p><br>
+
+
     <p class = "buffer5">
       <%= form.label :price %>
       <%= form.text_field :price, type: 'Price' %>

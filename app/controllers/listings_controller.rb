@@ -1,9 +1,15 @@
 class ListingsController < ApplicationController
-skip_before_filter :verify_authenticity_token, :only => [:create, :update]
+skip_before_filter :verify_authenticity_token, :only => :create
 #shows all listings page
+
 	def index
-		@listings = Listing.all.paginate(page: params[:page], per_page: 10)
+	  if params[:city]
+	    @searchlistings = Listing.where(city: params[:city]).paginate(page: params[:page], per_page: 10)
+	  else
+	    @searchlistings = Listing.all.paginate(page: params[:page], per_page: 10)
+	  end
 	end
+
 
 #renders page to create new listing (form on page)
 	def new
@@ -23,10 +29,9 @@ skip_before_filter :verify_authenticity_token, :only => [:create, :update]
 	end
 	
 
-
 #page where user clicked on single listing (id)
 	def show
-		@single_listing = Listing.find_by(id: params[:id]) 
+		@single_listing = Listing.find_by(id: params[:id])
 	end
 
 #delete single listing within show page
@@ -65,6 +70,7 @@ skip_before_filter :verify_authenticity_token, :only => [:create, :update]
 																	  :summary,
 																	  :address,
 																	  :price,
+																	  :city,
 																	  {listing_image: []})
 	end 
 end 

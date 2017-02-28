@@ -8,7 +8,10 @@ mount_uploaders :listing_image, ListingImageUploader
             :summary,
             :address,
             :price,
+            :city,
             presence: true
+
+  # geocoded_by :address geocode gem to be added here
 
 	validates :summary, length: { maximum: 500 }
 	validates :address, length: { maximum: 50 }
@@ -81,6 +84,18 @@ mount_uploaders :listing_image, ListingImageUploader
   		["8","8"],
   	] 
 	end 
+
+  def self.city
+    [
+      ["Vancouver","Vancouver"],
+      ["Kuala Lumpur","Kuala Lumpur"], 
+    ] 
+  end
+
+  def self.search(search)
+  where("city ILIKE ?", "%#{city}%") 
+  end
+
 end
 
 

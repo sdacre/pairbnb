@@ -3,6 +3,8 @@ class User < ApplicationRecord
   include Clearance::User
   has_many :authentications
   has_many :listings
+  has_many :reservations
+  
   def self.create_with_auth_and_hash(authentication, auth_hash)
 
   		user = User.new(first_name: auth_hash["extra"]["raw_info"]["first_name"],

@@ -53,12 +53,19 @@
 
 		<%= @single_listing.summary %><br>
 		Address:<%= @single_listing.address %><br>
+    <%= @single_listing.city %><br>
 		<%= @single_listing.home_type %><br>
 		<%= @single_listing.listing_type %><br>
 		$<%= @single_listing.price%><br>
 		Bedrooms:<%= @single_listing.bedroom %><br>
 		Bathrooms:<%= @single_listing.bathroom %><br>
 		Accomodates:<%= @single_listing.accommodate %><br>
+
+
+    <button type="button" class="btn btn-default bottom5">
+      <%= link_to "Create New Reservation", new_listing_reservation_path(@single_listing) %>
+    </button><br> 
+
 
 		<button type="button" class="btn btn-default bottom5">
 			<%= link_to "Edit", edit_listing_path(@single_listing) %>
