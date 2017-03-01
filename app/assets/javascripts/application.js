@@ -24,3 +24,4 @@ window.setTimeout(function() {
 		$(this).remove();
 	});
 }, 1000);
+

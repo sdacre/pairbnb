@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
 
   root 'homes#index'
+  get 'braintree/new'
+  post 'braintree/checkout'
   
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
@@ -23,6 +25,5 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-
 
 

@@ -32,5 +32,6 @@
     Check-out <%= user_reservations.end_date %><br>
     Listing id: <%= user_reservations.listing_id %><br>
     User id: <%= user_reservations.user_id %><br>
+    <%= link_to "Make Payment", braintree_new_path %><br>
     <% end %>
 
